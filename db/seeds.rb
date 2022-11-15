@@ -34,3 +34,4 @@ we4 = WeatherEvent.create!(description: "Vancouver daily day", temperature: 10, 
 puts "weather_event #{we4.id} of user #{we4.owner.first_name} created"
 
 puts "Seeding all done!"
+puts "Now we can test Github!"
