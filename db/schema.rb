@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_15_192055) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_15_205004) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_192055) do
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "renter_id"
+    t.bigint "weather_event_id"
+    t.index ["renter_id"], name: "index_bookings_on_renter_id"
+    t.index ["weather_event_id"], name: "index_bookings_on_weather_event_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,5 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_192055) do
     t.index ["owner_id"], name: "index_weather_events_on_owner_id"
   end
 
+  add_foreign_key "bookings", "users", column: "renter_id"
+  add_foreign_key "bookings", "weather_events"
   add_foreign_key "weather_events", "users", column: "owner_id"
 end
