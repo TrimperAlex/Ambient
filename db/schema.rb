@@ -35,4 +35,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_15_192055) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "weather_events", force: :cascade do |t|
+    t.text "description"
+    t.string "category"
+    t.float "temperature"
+    t.string "image_url"
+    t.float "price"
+    t.bigint "owner_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_weather_events_on_owner_id"
+  end
+
+  add_foreign_key "weather_events", "users", column: "owner_id"
 end
