@@ -1,0 +1,2 @@
+class WeatherEventsController < ApplicationController
+end
