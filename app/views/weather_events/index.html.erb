@@ -2,7 +2,7 @@
 <div class="container">
   <ul>
     <% @weather_events.each do |event| %>
-      <li><%= link_to weather_event.title, weather_event_path(event) %></li>
+      <li><%= link_to event.description, weather_event_path(event) %></li>
     <% end %>
   </ul>
 </div>

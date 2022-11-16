@@ -1,2 +1,6 @@
-<h1><%= weather_event.title %></h1>
-<p><%= weather_event.description %></p>
+<div class="container">
+  <h1><%= @weather_event.description %></h1>
+  <%= @weather_event.image_url %>
+  <p>Temperature: <%= @weather_event.temperature %></p>
+  <p>Category: <%= @weather_event.category %></p>
+</div>
