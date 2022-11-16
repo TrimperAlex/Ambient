@@ -1,8 +1,15 @@
 <h1>All Weather Events</h1>
 <div class="container">
-  <ul>
+  <div class="cards">
     <% @weather_events.each do |event| %>
-      <li><%= link_to event.description, weather_event_path(event) %></li>
+      <%= link_to weather_event_path(event) do  %>
+        <div class="card-category"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3),
+            rgba(0,0,0,0.3)),
+            url('<%= asset_path(event.image_url) %>')">
+          <%= event.description %>
+        </div>
+      <% end %>
     <% end %>
-  </ul>
+  </div>
 </div>
