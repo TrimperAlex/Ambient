@@ -1,6 +1,8 @@
 <div class="container">
   <h1><%= @weather_event.description %></h1>
-  <%= @weather_event.image_url %>
+  <img alt="WeatherEventImage" width="200" src="/assets/<%= @weather_event.image_url %>">
+
   <p>Temperature: <%= @weather_event.temperature %></p>
   <p>Category: <%= @weather_event.category %></p>
+  <p>Price: $<%= @weather_event.price %></p>
 </div>
