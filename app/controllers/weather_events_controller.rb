@@ -30,7 +30,7 @@ class WeatherEventsController < ApplicationController
     if @weather_event.save
       redirect_to weather_event_path(@weather_event)
     else
-      render :new, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
