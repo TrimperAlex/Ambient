@@ -1,0 +1,7 @@
+<div class="form-inputs">
+  <%= simple_form_for([@weather_event, @booking]) do |f| %>
+  <%= f.input :date %>
+  <%= f.input :location %>
+  <%= f.submit 'Book!', class: 'btn btn-secondary' %>
+  <% end %>
+</div>
