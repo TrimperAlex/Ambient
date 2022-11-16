@@ -1,8 +1,18 @@
 <h1>All Weather Events</h1>
+
 <div class="container">
-  <ul>
+  <ul class="m-5">
     <% @weather_events.each do |event| %>
-      <li><%= link_to event.description, weather_event_path(event) %></li>
+      <li>
+        <div class="card-product m-3">
+          <img alt="WeatherEventImage" width="200" src="/assets/<%= event.image_url %>">
+            <div class="card-product-infos">
+              <h2><%= link_to event.description, weather_event_path(event) %></h2>
+              <p>Temperature: <%= event.temperature %></p>
+              <p>Catergory: <%= event.category %></p>
+            </div>
+          </div>
+      </li>
     <% end %>
   </ul>
 </div>
