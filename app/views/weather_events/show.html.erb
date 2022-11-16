@@ -5,10 +5,6 @@
   <p>Temperature: <%= @weather_event.temperature %></p>
   <p>Category: <%= @weather_event.category %></p>
   <p>Price: $<%= @weather_event.price %></p>
-</div>
 <br>
-<div class="container">
-<button type="button" class="btn btn-primary"><% link_to "Edit", edit_weather_event_booking_path %>
-</button>
-
+  <%= link_to "Edit", edit_weather_event_path %>
 </div>

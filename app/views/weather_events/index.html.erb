@@ -1,5 +1,9 @@
 <h1>All Weather Events</h1>
 <div class="container">
+  <div>
+    <%= link_to "Create a New Weather Event", new_weather_event_path %>
+  </div>
+
   <div class="cards">
     <% @weather_events.each do |event| %>
       <%= link_to weather_event_path(event) do  %>
