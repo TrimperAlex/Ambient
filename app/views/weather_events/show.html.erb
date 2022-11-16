@@ -5,5 +5,6 @@
   <p>Temperature: <%= @weather_event.temperature %></p>
   <p>Category: <%= @weather_event.category %></p>
   <p>Price: $<%= @weather_event.price %></p>
-  <%= link_to "Book this Weather Event", new_weather_event_booking_path(@weather_event, @booking) %>
+<br>
+  <%= link_to "Edit", edit_weather_event_path %>
 </div>
