@@ -25,10 +25,10 @@ class WeatherEventsController < ApplicationController
   end
 
   def update
-    @weather_event = WeatherEvent.update(weather_event_params)
+    # @weather_event = WeatherEvent.update(weather_event_params)
 
-    if @weather_event.save
-      redirect_to weather_event_path(@weather_event)
+    if @weather_event.update(weather_event_params)
+      redirect_to weather_event_path(@weather_event), notice: "your weather event has been updated!"
     else
       render :edit, status: :unprocessable_entity
     end
