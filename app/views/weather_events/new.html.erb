@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>Add a new weather event</h1>
+  <%= render "/shared/new_weather_event_form", weather_event: @weather_event %>
+</div>
+<div class="container">
+  <%= link_to "back to all weather events", weather_events_path %>
+</div>
