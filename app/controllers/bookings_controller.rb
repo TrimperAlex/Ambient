@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[show]
+  before_action :set_booking, only: %i[show destroy edit update]
   def index
     @bookings = Booking.all
   end
@@ -15,10 +15,27 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
 
     if @booking.save
-      redirect_to
+      redirect_to weather_event_bookings_path(@booking)
     else
-
+      render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+  end
+
+  def update
+    @booking = Booking.update(booking_params)
+
+    if @booking.save
+      redirect_to weather_event_bookings_path(@booking)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @booking.destroy
   end
 
   private
