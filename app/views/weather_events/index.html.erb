@@ -1,1 +1,8 @@
 <h1>All Weather Events</h1>
+<div class="container">
+  <ul>
+    <% @weather_events.each do |event| %>
+      <li><%= link_to weather_event.title, weather_event_path(event) %></li>
+    <% end %>
+  </ul>
+</div>
