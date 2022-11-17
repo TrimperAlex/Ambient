@@ -3,5 +3,7 @@
   <h1>Here's your booking...get excited!</h1>
   <p>Location: <%= @booking.location %></p>
   <p>Date: <%= @booking.date %></p>
+  <p>Status: <%= @booking.status %></p>
 </div>
 
+<%= link_to "Edit this Booking", edit_booking_path(@booking) %>
