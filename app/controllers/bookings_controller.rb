@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show destroy edit update]
-  def index
-    @bookings = Booking.all
-  end
+  # def index
+  #   @bookings = Booking.where(renter_id: current_user.id)
+  # end
 
   def show
   end
@@ -28,10 +28,10 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking = Booking.update(booking_params)
+    @booking.status = 0
 
-    if @booking.save
-      redirect_to weather_event_bookings_path(@booking)
+    if @booking.update(booking_params)
+      redirect_to booking_path(@booking)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -39,6 +39,10 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
+  end
+
+  def my_bookings
+    @bookings = Booking.where(renter_id: current_user.id)
   end
 
   private
