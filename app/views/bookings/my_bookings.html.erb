@@ -1,11 +1,14 @@
-<h1>All of My Bookings!</h1>
-<ul>
-    <% @bookings.each do |booking| %>
-      <li>
-        <p><%= booking.location %></p>
-        <p><%= booking.date %></p>
-        <p><%= booking.status %></p>
-        <%= link_to "Check Out This Booking", booking_path(booking) %>
-      </li>
-    <% end %>
-</ul>
+<div class="my-5"></div>
+<div class="container">
+  <h1>All of My Bookings!</h1>
+  <ul>
+      <% @bookings.each do |booking| %>
+        <li>
+          <p><%= booking.location %></p>
+          <p><%= booking.date %></p>
+          <p><%= booking.status %></p>
+          <%= link_to "Check Out This Booking", booking_path(booking) %>
+        </li>
+      <% end %>
+  </ul>
+</div>

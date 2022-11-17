@@ -1,12 +1,15 @@
-<h1>Here are Your Requests!</h1>
-<ul>
-    <% @bookings.each do |booking| %>
-      <li>
-        <p><%= booking.renter.first_name %> <%= booking.renter.last_name %></p>
-        <p><%= booking.location %></p>
-        <p><%= booking.date %></p>
-        <p><%= booking.status %></p>
-        <%= link_to "change the status", edit_request_path(booking) %>
-      </li>
-    <% end %>
-</ul>
+<div class="my-5"></div>
+<div class="container">
+  <h1>Here are Your Requests!</h1>
+  <ul>
+      <% @bookings.each do |booking| %>
+        <li>
+          <p><%= booking.renter.first_name %> <%= booking.renter.last_name %></p>
+          <p><%= booking.location %></p>
+          <p><%= booking.date %></p>
+          <p><%= booking.status %></p>
+          <%= link_to "change the status", edit_request_path(booking) %>
+        </li>
+      <% end %>
+  </ul>
+</div>
