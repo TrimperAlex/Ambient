@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Here's your request from <%= @renter.first_name %> <%= @renter.last_name %></h1>
+  <p>Location: <%= @booking.location %></p>
+  <p>Date: <%= @booking.date %></p>
+  <p>Status: <%= @booking.status %></p>
+</div>
+<%= simple_form_for(@booking) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :status, collection: Booking.statuses.keys %>
+      <%= f.submit 'Change Status!', class: 'btn btn-secondary' %>
+    </div>
+  <% end %>

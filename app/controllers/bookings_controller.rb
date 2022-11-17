@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[show destroy edit update]
+  before_action :set_booking, only: %i[show destroy edit update edit_request update_status]
   # def index
   #   @bookings = Booking.where(renter_id: current_user.id)
   # end
@@ -28,7 +28,11 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking.status = 0
+    if @booking.weather_event.owner == current_user
+      @booking.status = params[:booking][:status]
+    else
+      @booking.status = 0
+    end
 
     if @booking.update(booking_params)
       redirect_to booking_path(@booking)
@@ -46,14 +50,26 @@ class BookingsController < ApplicationController
   end
 
   def requests
-    @weather_events = WeatherEvent.where(owner_id: current_user.id)
-    @bookings = Booking.all
+    @bookings = User.find(current_user.id).owner_bookings
+  end
+
+  def edit_request
+  end
+
+  def update_status
+
+    if @booking.update(booking_params)
+      redirect_to owner_bookings_path(@booking)
+    else
+      render :edit_request, status: :unprocessable_entity
+    end
   end
 
   private
 
   def set_booking
     @booking = Booking.find(params[:id])
+    @renter = @booking.renter
   end
 
   def booking_params

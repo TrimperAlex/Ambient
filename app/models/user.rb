@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :weather_events, foreign_key: :owner_id
   has_many :bookings
+  has_many :owner_bookings, through: :weather_events, source: :bookings
 end

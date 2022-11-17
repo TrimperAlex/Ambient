@@ -10,5 +10,7 @@ Rails.application.routes.draw do
 
   get '/my_weather_events', to: 'weather_events#owner_list'
   get '/my_bookings', to: 'bookings#my_bookings'
-  get '/owner_bookings/:id', to: 'bookings#requests'
+  get '/owner_bookings', to: 'bookings#requests'
+  get '/owner_bookings/:id/edit', to: 'bookings#edit_request', as: :edit_request
+  patch '/owner_bookings/:id', to: 'bookings#update_status', as: :update_request_status
 end
