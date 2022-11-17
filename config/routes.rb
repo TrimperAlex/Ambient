@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: %i[destroy show]
+
+  get '/my_weather_events', to: 'weather_events#owner_list'
 end
