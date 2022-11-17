@@ -2,7 +2,6 @@ class WeatherEventsController < ApplicationController
   before_action :set_weather_event, only: %i[show destroy edit update]
   def index
     @weather_events = WeatherEvent.all
-    raise
   end
 
   def owner_list
