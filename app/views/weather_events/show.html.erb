@@ -8,9 +8,9 @@
   <p>Price: $ <%= @weather_event.price %></p>
   <br>
   <% if @weather_event.owner == current_user %>
-    <%= link_to "Edit", edit_weather_event_path %>
+    <%= link_to "Edit", edit_weather_event_path, class: 'btn-weather' %>
   <% else %>
-    <%= link_to "Book this Weather Event", new_weather_event_booking_path(@weather_event, @booking) %>
+    <%= link_to "Book this Weather Event", new_weather_event_booking_path(@weather_event, @booking), class: 'btn-weather' %>
   <% end %>
   <br>
   <%# we need to move this to the owner of W-E page %>
