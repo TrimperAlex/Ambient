@@ -1,10 +1,13 @@
-<%= simple_form_for(weather_event) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :description %>
-    <%= f.input :category %>
-    <%= f.input :temperature %>
-    <%= f.input :price %>
-    <%= f.input :image_url %>
-    <%= f.submit 'Update!', class: 'btn btn-secondary' %>
-  </div>
-<% end %>
+<div class="my-5"></div>
+<div class="container">
+  <%= simple_form_for(weather_event) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :description %>
+      <%= f.input :category %>
+      <%= f.input :temperature %>
+      <%= f.input :price %>
+      <%= f.input :image_url %>
+      <%= f.submit 'Update!', class: 'btn btn-secondary' %>
+    </div>
+  <% end %>
+</div>
