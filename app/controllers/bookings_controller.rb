@@ -45,6 +45,11 @@ class BookingsController < ApplicationController
     @bookings = Booking.where(renter_id: current_user.id)
   end
 
+  def requests
+    @weather_events = WeatherEvent.where(owner_id: current_user.id)
+    @bookings = Booking.all
+  end
+
   private
 
   def set_booking
