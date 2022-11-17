@@ -4,6 +4,10 @@ class WeatherEventsController < ApplicationController
     @weather_events = WeatherEvent.all
   end
 
+  def owner_list
+    @my_weather_events = WeatherEvent.where(owner_id: current_user.id)
+  end
+
   def new
     @weather_event = WeatherEvent.new
   end
@@ -13,6 +17,7 @@ class WeatherEventsController < ApplicationController
 
   def create
     @weather_event = WeatherEvent.new(weather_event_params)
+    @weather_event.owner = current_user
 
     if @weather_event.save
       redirect_to weather_event_path(@weather_event)
@@ -45,6 +50,6 @@ class WeatherEventsController < ApplicationController
   end
 
   def weather_event_params
-    params.require(:weather_event).permit(:description, :category, :temperature, :image_url, :price, :owner_id)
+    params.require(:weather_event).permit(:description, :category, :temperature, :image_url, :price)
   end
 end
