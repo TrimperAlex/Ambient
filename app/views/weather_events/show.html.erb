@@ -1,3 +1,4 @@
+<div class="my-5"></div>
 <div class="container">
   <h1><%= @weather_event.description %></h1>
   <img alt="WeatherEventImage" width="200" src="/assets/<%= @weather_event.image_url %>">
@@ -6,7 +7,11 @@
   <p>Category: <%= @weather_event.category %></p>
   <p>Price: $<%= @weather_event.price %></p>
   <br>
-  <%= link_to "Book this Weather Event", new_weather_event_booking_path(@weather_event, @booking) %>
+  <% if @weather_event.owner == current_user %>
+    <%= link_to "Edit", edit_weather_event_path %>
+  <% else %>
+    <%= link_to "Book this Weather Event", new_weather_event_booking_path(@weather_event, @booking) %>
+  <% end %>
   <br>
-  <%= link_to "Edit", edit_weather_event_path %>
+  <%# we need to move this to the owner of W-E page %>
 </div>
