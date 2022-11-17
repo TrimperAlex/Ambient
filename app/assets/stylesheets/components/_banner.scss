@@ -2,8 +2,14 @@
   background-size: cover;
   background-position: center;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url("ambientt-banner-pic.jpg");
-
   padding: 150px 0;
+  // position: relative;
+  // left: 50%;
+  // right: 50%;
+  // margin-left: -50vw;
+  // margin-right: -50vw;
+  // max-width: 100vw;
+  // width: 100vw;
 }
 
 .banner h1 {
