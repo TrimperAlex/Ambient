@@ -35,7 +35,11 @@ class BookingsController < ApplicationController
     end
 
     if @booking.update(booking_params)
-      redirect_to booking_path(@booking)
+      if @booking.weather_event.owner == current_user
+        redirect_to owner_bookings_path
+      else
+        redirect_to booking_path(@booking)
+      end
     else
       render :edit, status: :unprocessable_entity
     end
@@ -65,9 +69,8 @@ class BookingsController < ApplicationController
   end
 
   def update_status
-
     if @booking.update(booking_params)
-      redirect_to owner_bookings_path(@booking)
+        redirect_to owner_bookings_path
     else
       render :edit_request, status: :unprocessable_entity
     end
