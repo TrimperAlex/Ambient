@@ -1,20 +1,8 @@
 <div class="my-5"></div>
 <div class="container">
-<h1>All Weather Events</h1>
-
-  <div class="cards">
-    <% @weather_events.each do |event| %>
-      <%= link_to weather_event_path(event) do  %>
-        <div class="card-category"
-            style="background-image: linear-gradient(rgba(0,0,0,0.3),
-            rgba(0,0,0,0.3)),
-            url('<%= asset_path(event.image_url) %>')">
-          <%= event.description %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-    <div class="m-5">
-      <%= link_to "Create a New Weather Event", new_weather_event_path, class: "btn-weather" %>
-    </div>
+  <h1>All Weather Events</h1>
+    <%= render "shared/card" %>
+      <div class="m-5">
+        <%= link_to "Create a New Weather Event", new_weather_event_path, class: "btn-weather" %>
+      </div>
 </div>
