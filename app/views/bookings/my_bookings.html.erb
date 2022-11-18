@@ -13,6 +13,7 @@
                 <p class="card-text">Location: <%= booking.location %></p>
                 <p class="card-text">Date: <%= booking.date %></p>
                 <p class="card-text">Status: <%= booking.status %></p>
+                <div><%= link_to "Delete Booking", booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?" }, class: 'btn-weather', id:"btn-card" %></div>
                 <div><%= link_to "See Booking", booking_path(booking), class:"btn-weather", id:"btn-card" %></div>
               </div>
             </div>
