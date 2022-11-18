@@ -47,6 +47,14 @@ class BookingsController < ApplicationController
 
   def my_bookings
     @bookings = Booking.where(renter_id: current_user.id)
+
+    @markers = @bookings.geocoded.map do |booking|
+      {
+        lat: booking.latitude,
+        lng: booking.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {booking: booking})
+      }
+    end
   end
 
   def requests
