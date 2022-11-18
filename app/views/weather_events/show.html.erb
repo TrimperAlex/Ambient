@@ -1,4 +1,3 @@
-<%# <div class="my-5"></div> %>
 <div class="container">
     <h1><%= @weather_event.description %></h1>
   <div class="show-page">
@@ -16,6 +15,7 @@
       <br>
       <% if @weather_event.owner == current_user %>
         <%= link_to "Edit", edit_weather_event_path, class: 'btn-weather' %>
+        <%= link_to "Delete", weather_event_path(@weather_event), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?" }, class: 'btn-weather' %>
       <% else %>
         <%= link_to "Book this Weather Event", new_weather_event_booking_path(@weather_event, @booking), class: 'btn-weather', id:"btn-showpage" %>
       <% end %>

@@ -41,6 +41,7 @@ class WeatherEventsController < ApplicationController
 
   def destroy
     @weather_event.destroy
+    redirect_to my_weather_events_path, status: :see_other
   end
 
   private
