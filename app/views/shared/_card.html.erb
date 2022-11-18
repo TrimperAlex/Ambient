@@ -1,8 +1,12 @@
-<div class="card-product">
-  <img src="<%= image_url %>" />
-  <div class="card-product-infos">
-    <h2><%= @weather_event.description %></h2>
-    <p>Temperature: <%= @weather_event.temperature %></p>
-    <p>Catergory: <%= @weather_event.category %></p>
+ <div class="cards">
+    <% @weather_events.each do |event| %>
+      <%= link_to weather_event_path(event) do  %>
+        <div class="card-category"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3),
+            rgba(0,0,0,0.3)),
+            url('<%= asset_path(event.image_url) %>')">
+            <%= event.description %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
-</div>
