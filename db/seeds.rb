@@ -24,7 +24,9 @@ user4 = User.create!(email: "helene@ambient.com", password: "123456", first_name
 puts "user #{user4.id} created"
 
 puts "now creating 4 weather_events…"
+
 we1 = WeatherEvent.create!(description: "Summer shiny day", temperature: 30, category: "sun", image_url: "summer.jpg", price: 1000, owner_id: user1.id)
+
 puts "weather_event #{we1.id} of user #{we1.owner.first_name} created"
 we2 = WeatherEvent.create!(description: "Snowstorm Stay at home day", temperature: -10, category: "snow", image_url: "snow.jpg", price: 100, owner_id: user2.id)
 puts "weather_event #{we2.id} of user #{we2.owner.first_name} created"

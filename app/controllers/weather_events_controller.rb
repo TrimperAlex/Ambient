@@ -50,6 +50,6 @@ class WeatherEventsController < ApplicationController
   end
 
   def weather_event_params
-    params.require(:weather_event).permit(:description, :category, :temperature, :image_url, :price)
+    params.require(:weather_event).permit(:description, :category, :temperature, :image_url, :price, :photo)
   end
 end
