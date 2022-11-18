@@ -1,7 +1,11 @@
 <div class="my-5"></div>
 <div class="container">
   <h1><%= @weather_event.description %></h1>
-  <img alt="WeatherEventImage" width="200" src="/assets/<%= @weather_event.image_url %>">
+  <% if @weather_event.photo.attached? %>
+    <%= cl_image_tag @weather_event.photo.key, width: 200 %>
+  <% else %>
+    <img alt="WeatherEventimage" width="200" src="/assets/<%= @weather_event.image_url %>" alt="">
+  <% end %>
 
   <p>Temperature: <%= @weather_event.temperature %></p>
   <p>Category: <%= @weather_event.category %></p>
