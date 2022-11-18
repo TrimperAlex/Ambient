@@ -4,6 +4,7 @@
   <ul>
       <% @bookings.each do |booking| %>
         <li>
+          <h6><%= booking.weather_event.description %></h6>
           <p><%= booking.location %></p>
           <p><%= booking.date %></p>
           <p><%= booking.status %></p>

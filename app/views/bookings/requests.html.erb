@@ -1,15 +1,27 @@
 <div class="my-5"></div>
 <div class="container">
   <h1>Here are Your Requests!</h1>
-  <ul>
+  <div class="cards">
       <% @bookings.each do |booking| %>
-        <li>
-          <p><%= booking.renter.first_name %> <%= booking.renter.last_name %></p>
-          <p><%= booking.location %></p>
-          <p><%= booking.date %></p>
-          <p><%= booking.status %></p>
-          <%= link_to "change the status", edit_request_path(booking) %>
-        </li>
+        <div class="card">
+          <h5 class="card-header">Request</h5>
+          <div class="card-body">
+          <h5 class="card-title"><%= booking.renter.first_name %> <%= booking.renter.last_name %></h5>
+          <p class="card-text"><%= booking.location %></p>
+          <p class="card-text"><%= booking.date %></p>
+          <p class="card-text"><%= booking.status %></p>
+          <div><%= link_to "change the status", edit_request_path(booking), class:"btn-weather", id:"btn-card" %>
+          </div>
+          </div>
+        </div>
       <% end %>
-  </ul>
+  </div>
 </div>
+
+<%# <div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div> %>

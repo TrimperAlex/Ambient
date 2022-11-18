@@ -3,6 +3,6 @@
   <h1>Add a new weather event</h1>
   <%= render "/shared/new_weather_event_form", weather_event: @weather_event %>
 </div>
-<div class="container">
-  <%= link_to "back to all weather events", weather_events_path %>
+<div class="container m-5">
+  <%= link_to "back to all weather events", weather_events_path, class: "btn-weather" %>
 </div>
