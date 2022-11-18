@@ -1,20 +1,37 @@
 <div class="my-5"></div>
 <div class="container">
   <h1>All of My Bookings!</h1>
-  <ul>
-      <% @bookings.each do |booking| %>
-        <li>
-          <h6><%= booking.weather_event.description %></h6>
-          <p><%= booking.location %></p>
-          <p><%= booking.date %></p>
-          <p><%= booking.status %></p>
-          <%= link_to "Check Out This Booking", booking_path(booking) %>
-        </li>
-      <% end %>
-  </ul>
-  <div style="width: 600px; height: 400px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="d-flex justify-content-evenly">
+
+<div class="container">
+    <div class="cards">
+        <% @bookings.each do |booking| %>
+          <div class="my-5">
+            <div class="card">
+              <div class="card-body">
+              <h5 class="card-title"><%= booking.weather_event.description %></h5>
+              <p class="card-text">Location: <%= booking.location %></p>
+              <p class="card-text">Date: <%= booking.date %></p>
+              <p class="card-text">Status: <%= booking.status %></p>
+              <div><%= link_to "See Booking", booking_path(booking), class:"btn-weather", id:"btn-card" %></div>
+            </div>
+          </div>
+        <% end %>
+    </div>
   </div>
+
+
+
+  <div class="container my-5">
+    <div style="width: 600px; height: 400px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+
+
+
+  </div>
+
 </div>
