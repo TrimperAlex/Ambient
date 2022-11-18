@@ -1,21 +1,27 @@
-<div class="my-5"></div>
+<%# <div class="my-5"></div> %>
 <div class="container">
-  <h1><%= @weather_event.description %></h1>
-  <% if @weather_event.photo.attached? %>
-    <%= cl_image_tag @weather_event.photo.key, width: 200 %>
-  <% else %>
-    <img alt="WeatherEventimage" width="200" src="/assets/<%= @weather_event.image_url %>" alt="">
-  <% end %>
+    <h1><%= @weather_event.description %></h1>
+  <div class="show-page">
+    <div class="showcard">
+      <% if @weather_event.photo.attached? %>
+        <%= cl_image_tag @weather_event.photo.key, width: 200 %>
+      <% else %>
+        <%# <div class="weather-image"> %>
+        <img alt="WeatherEventimage" width="200px" src="/assets/<%= @weather_event.image_url %>" alt="">
+      <% end %>
 
-  <p>Temperature: <%= @weather_event.temperature %></p>
-  <p>Category: <%= @weather_event.category %></p>
-  <p>Price: $ <%= @weather_event.price %></p>
-  <br>
-  <% if @weather_event.owner == current_user %>
-    <%= link_to "Edit", edit_weather_event_path, class: 'btn-weather' %>
-  <% else %>
-    <%= link_to "Book this Weather Event", new_weather_event_booking_path(@weather_event, @booking), class: 'btn-weather' %>
-  <% end %>
-  <br>
-  <%# we need to move this to the owner of W-E page %>
+      <p>Temperature: <%= @weather_event.temperature %></p>
+      <p>Category: <%= @weather_event.category %></p>
+      <p>Price: $ <%= @weather_event.price %></p>
+      <br>
+      <% if @weather_event.owner == current_user %>
+        <%= link_to "Edit", edit_weather_event_path, class: 'btn-weather' %>
+      <% else %>
+        <%= link_to "Book this Weather Event", new_weather_event_booking_path(@weather_event, @booking), class: 'btn-weather', id:"btn-showpage" %>
+      <% end %>
+      <br>
+    </div>
+
+    <%# we need to move this to the owner of W-E page %>
+  </div>
 </div>
